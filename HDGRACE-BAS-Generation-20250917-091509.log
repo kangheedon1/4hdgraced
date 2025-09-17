@@ -1,0 +1,5 @@
+2025-09-17 09:15:09,589 - BAS_Enterprise_Generator - INFO - Logging system initialized
+2025-09-17 09:15:09,589 - BAS_Enterprise_Generator - INFO - Loaded 59623 grammar rules
+2025-09-17 09:15:09,589 - BAS_Enterprise_Generator - INFO - BAS 29.3.1 Enterprise Generator initialized
+2025-09-17 09:15:09,589 - BAS_Enterprise_Generator - INFO - Target file size: 700.0MB
+2025-09-17 09:15:09,589 - BAS_Enterprise_Generator - INFO - Max execution time: 600s

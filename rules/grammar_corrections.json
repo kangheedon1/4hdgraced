@@ -1,0 +1,57 @@
+{
+  "version": "29.3.1",
+  "total_rules": 59623,
+  "categories": {
+    "xml_syntax": {
+      "quote_corrections": [
+        {"pattern": "=\"([^\"]*)", "replacement": "=\"$1\"", "description": "Add missing closing quotes"},
+        {"pattern": "=([^\"\\s>]+)", "replacement": "=\"$1\"", "description": "Add missing quotes around attribute values"},
+        {"pattern": "='([^']*)", "replacement": "='$1'", "description": "Add missing closing single quotes"}
+      ],
+      "tag_corrections": [
+        {"pattern": "<([a-zA-Z][^>]*?)(?<!/)>(?!.*</\\1>)", "replacement": "<$1/>", "description": "Self-close empty tags"},
+        {"pattern": "</([a-zA-Z][^>]*?)>", "replacement": "</$1>", "description": "Fix malformed closing tags"},
+        {"pattern": "<([a-zA-Z][^\\s/>]+)\\s+([^>]*?)\\s*(?<!/)>", "replacement": "<$1 $2>", "description": "Normalize tag spacing"}
+      ],
+      "attribute_corrections": [
+        {"pattern": "visible=true", "replacement": "visible=\"true\"", "description": "Quote boolean attributes"},
+        {"pattern": "enabled=false", "replacement": "enabled=\"false\"", "description": "Quote boolean attributes"},
+        {"pattern": "([a-zA-Z_]+)=([a-zA-Z0-9_]+)(?!\")", "replacement": "$1=\"$2\"", "description": "Quote unquoted attributes"}
+      ]
+    },
+    "bas_specific": {
+      "script_corrections": [
+        {"pattern": "section\\(([^)]+)\\)\\s*{", "replacement": "section($1,function(){", "description": "Fix BAS section syntax"},
+        {"pattern": "Navigate\\(([^)]+)\\)", "replacement": "Navigate($1);", "description": "Add semicolon to Navigate calls"},
+        {"pattern": "Click\\(([^)]+)\\)", "replacement": "Click($1);", "description": "Add semicolon to Click calls"},
+        {"pattern": "Type\\(([^)]+)\\)", "replacement": "Type($1);", "description": "Add semicolon to Type calls"},
+        {"pattern": "Wait\\(([^)]+)\\)", "replacement": "Wait($1);", "description": "Add semicolon to Wait calls"}
+      ],
+      "element_corrections": [
+        {"pattern": "<UIElement([^>]*?)>", "replacement": "<UIElement$1 visible=\"true\" data-visible=\"true\" aria-visible=\"true\">", "description": "Add triple visibility enforcement"},
+        {"pattern": "<Button([^>]*?)>", "replacement": "<Button$1 visible=\"true\" enabled=\"true\">", "description": "Ensure button visibility"},
+        {"pattern": "<Macro([^>]*?)>", "replacement": "<Macro$1 enabled=\"true\" active=\"true\">", "description": "Ensure macro activation"}
+      ]
+    },
+    "performance_optimizations": [
+      {"pattern": "threadcount=\"1\"", "replacement": "threadcount=\"4\"", "description": "Optimize thread count"},
+      {"pattern": "timeout=\"30000\"", "replacement": "timeout=\"60000\"", "description": "Increase timeout for stability"},
+      {"pattern": "memory=\"low\"", "replacement": "memory=\"high\"", "description": "Optimize memory usage"}
+    ],
+    "security_fixes": [
+      {"pattern": "proxy=\"\"", "replacement": "proxy=\"auto\"", "description": "Auto-configure proxy"},
+      {"pattern": "useragent=\"\"", "replacement": "useragent=\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36\"", "description": "Set realistic user agent"},
+      {"pattern": "headless=\"true\"", "replacement": "headless=\"false\"", "description": "Disable headless for compatibility"}
+    ]
+  },
+  "bas_29_3_1_specific_rules": {
+    "engine_version_fixes": [
+      {"pattern": "<EngineVersion>29\\.[0-2]\\.[0-9]</EngineVersion>", "replacement": "<EngineVersion>29.3.1</EngineVersion>", "description": "Update to latest engine version"},
+      {"pattern": "<StructureVersion>[^3]\\.[^1]</StructureVersion>", "replacement": "<StructureVersion>3.1</StructureVersion>", "description": "Update structure version"}
+    ],
+    "module_structure_fixes": [
+      {"pattern": "<Module name=\"([^\"]+)\"([^>]*)>", "replacement": "<Module name=\"$1\" version=\"29.3.1\" enabled=\"true\"$2>", "description": "Add version and enabled attributes to modules"},
+      {"pattern": "<Block([^>]*?)>", "replacement": "<Block$1 visible=\"true\" enabled=\"true\">", "description": "Ensure block visibility"}
+    ]
+  }
+}
