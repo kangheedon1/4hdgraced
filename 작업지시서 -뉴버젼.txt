@@ -1,0 +1,546 @@
+"""
+HDGRACE-BAS-Final-XML 자동 생성기 (BAS 29.2.0 프로덕션 배포용)
+완전한 프로젝트 XML을 3605개 기능, 700MB 이상, 무결성/스키마 검증/문법 오류 자동교정까지 모두 충족
+작업 지시문
+📌 1. GitHub 저장소 접속 및 파일 분석
+    - API 설정 -
+    GITHUB_APIS = [
+        "https://api.github.com/repos/kangheedon1/hdgracedv2/contents",
+        "https://api.github.com/repos/kangheedon1/hdgrace/contents"
+    ]
+    GOOGLE_BAS_APIS = [
+        "https://bas.googleapis.com/v1/automation/projects",
+        "https://bas.googleapis.com/v1/scripts/execute",
+        "https://bas.googleapis.com/v1/modules/load"
+    ]
+    - 저장소 안에 존재하는 모든 파일을 누락 없이 전부 불러와 분석한다.
+    - 테스트/예시 용도로 일부만 확인하지 말고 프로젝션 배포용 전체 코드 기준으로 진행해야 한다.
+📌 2. 초정밀 분석
+    - 저장소 안의 각 파일별로 구조, 기능, 호출 관계, 실행 로직, 보안 요소, UI/이모지 처리, 매크로/액션 구조를 모두 파악한다.
+    - 분석 시 누락 없이 100% 완전하게 기록해야 하며, 임시 요약이나 뼈대 코드 작성은 절대 금지한다.
+    - 각 파일에서 발견된 문법 오류, 비표준 표현, 잠재적 실행 오류까지 모두 식별한다.
+    - 바스표준문법1500000개저장소 https://github.com/kangheedon1/bas29.1.0-xml.Standard-Calibrator.git 의 주요 파일 분석과 사용법 안내.
+📌 3. 표준 및 교정
+    - GitHub 바스 교정 저장소 API:
+      https://api.github.com/repos/kangheedon1/bas29.1.0-xml.Standard-Calibrator/git/trees/main?recursive=1
+    - 문법 규칙 적용: 1,500,000개 전부 적용 ✅
+    - 교정 정밀도: 100% ✅
+    - 자동 교정 오류 ≥ 59,000건 (따옴표, 태그, 속성, 특수문자 오류 등)
+    - 누락 허용률: 0.0001% 이하, 실제 0.00%
+📌 4. 필수 26개 블록/기능/요소 실제 적용
+    - Dat, Updater, DependencyLoader, CompatibilityLayer, Dash, Script, Resource, Module,
+      Navigator, Security, Network, Storage, Scheduler, UIComponents, Macro, Action,
+      Function, LuxuryUI, Theme, Logging, Metadata, CpuMonitor, ThreadMonitor,
+      MemoryGuard, LogError, RetryAction
+    - YouTube/브라우저/프록시/에러복구/스케줄링/모니터링/보안 전체 적용
+    - 모든 UI 요소 visible="true" 강제
+    - 실시간 Github/구글드라이브 코드·데이터 동기화
+    - 통계/검증 보고서/로그 자동 생성
+    - 상업용 .exe/DLL/서비스 배포/설치 파일 포함
+📌 5. 기능 생성 및 UI 구성
+    - 3065개 기능 생성 (예: 유튜브_자동화_0 ~ 유튜브_자동화_399, 프록시_관리_0 ~ 프록시_관리_349 등)
+    - UI 구성: 각 기능 카테고리별 폴더 생성, 폴더 내 버튼 생성 (1버튼 = 1기능)
+    - 이모지 자동 배치: ✅ ❌ ⚠️ 🔒 🚀
+    - visible="true" 강제 적용: 모든 UI 요소 노출 보장
+📌 6. VPS Windows Server 2022 호환성 보장
+    - OS 감지 및 최적화
+    - 서비스 권한 처리 (RunAsService=true)
+    - 방화벽 우회 (선택적)
+    - UAC 우회
+    - 디스플레이 설정 (windowwidth=1920, windowheight=1080, headless=false)
+    - 프로필 경로 통일 (동적 경로 사용)
+    - 성능 최적화 (maxthreads=500, threadstartdelay=1000 등)
+    - 로그 기록 (C:\Logs\BAS\)
+📌 7. 액션 생성 로직 개선
+    - 각 매크로당1개기능당 랜덤 30~50개의 액션을 생성하여 총 액션 수를 90,300~122,600개로 조정.
+📌 8. 모듈 및 UI 요소 생성 개선
+    - 정확한 수량의 모듈 및 UI 요소를 생성하고, 각 요소에 visible="true" 속성을 강제 적용.
+📌 9. 구조 일관성 유지
+    - 제공된 구조 (예: <BrowserAutomationStudioProject> 내부 구성)를 최대한 유지하면서 필요한 요소들을 추가 및 수정.
+📌 10. GitHub 및 Google Drive URL 정규화
+    - URL 내 공백 제거 및 정규화.
+📌 11. 통계 및 검증 보고서 생성
+   
+📌 12. 모든 기능 100% 반영
+    - 실제 액션, UI 요소, 모듈 등 모든 요소를 100% 포함시켜 누락 방지.
+📌 13. 출력 시간 600초 이내 보장
+    - 스트리밍, 병렬화, 캐시 등을 활용하여 600초 이내에 완전체 XML 생성.
+📌 14. 예시 제거 및 실전 코드 통합
+    - 모든 예시 코드 제거하고 실제 동작 코드로 교체.
+📌 15. 모든 visible="true" 강제 적용
+    - 모든 요소에 visible="true" 속성을 강제 적용하여 누락 방지.
+📌 16. ChromeCommandLine 중복 플래그 제거
+    - CookieDeprecationFacilitatedTesting 중복 플래그 제거.
+📌 17. UI 버튼 강제 노출
+    - 모든 UI 요소 중 버튼을 강제로 노출.
+📌
+    - 
+📌 19. CDATA 처리 강화
+    
+📌 20. 중복 생성 방지
+    -
+ 구글 드라이브 압축해제후
+"BrowserAutomationStudio.zipx" 공유
+
+https://drive.google.com/file/d/138eovz-G0_r4z7j4fTm75TgAF3c6ziQF/view?usp=sharing
+
+
+BrowserAutomationStudio version 29.3.1 (premium).구글 드라이브 압축해제후
+
+비스 29.3.1버젼으로 xml 생성기 100% 적용 삽입	
+https://community.bablosoft.com/
+
+https://bablosoft.com/shop/BrowserAutomationStudio#
+
+https://bablosoft.com/
+
+100% 분석해 습득해
+
+이 구조 문법 100% 적용 하여 xml 출력 되도록 배치한다
+
+100% 이구조와 문법으로 xml 생성하도록파이썬 xml 생성 코드 출력.모든기능활성화로 변경
+
+100% 이구조와 문법으로 xml 생성하도록파이썬 xml 생성 코드 출력,모든기능활성화로 변경
+<?xml version="1.0" encoding="UTF-8"?>
+<BrowserAutomationStudioProject>
+     <Script><![CDATA[section(1,1,1,0,function(){
+    section_start("Initialize", 0)!
+    section_end()!
+})!
+]]></Script>
+     <ModuleInfo><![CDATA[{
+}
+]]></ModuleInfo>
+     <Modules/>
+     <EmbeddedData><![CDATA[[]]]></EmbeddedData>
+     <DatabaseId>Database.25868</DatabaseId>
+     <Schema></Schema>
+     <ConnectionIsRemote>True</ConnectionIsRemote>
+     <ConnectionServer></ConnectionServer>
+     <ConnectionPort></ConnectionPort>
+     <ConnectionLogin></ConnectionLogin>
+     <ConnectionPassword></ConnectionPassword>
+     <HideDatabase>true</HideDatabase>
+     <DatabaseAdvanced>true</DatabaseAdvanced>
+     <DatabaseAdvancedDisabled>true</DatabaseAdvancedDisabled>
+     <ScriptName>ScriptName</ScriptName>
+     <ProtectionStrength>4</ProtectionStrength>
+     <UnusedModules>PhoneVerification;ClickCaptcha;InMail;JSON;String;ThreadSync;URL;Path</UnusedModules>
+     <ScriptIcon>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</ScriptIcon>
+     <IsCustomIcon>True</IsCustomIcon>
+     <HideBrowsers>True</HideBrowsers>
+     <URLWithServerConfig></URLWithServerConfig>
+     <ShowAdvanced>True</ShowAdvanced>
+     <IntegrateScheduler>True</IntegrateScheduler>
+     <SingleInstance>True</SingleInstance>
+     <CopySilent>True</CopySilent>
+     <IsEnginesInAppData>True</IsEnginesInAppData>
+     <CompileType>NoProtection</CompileType>
+     <ScriptVersion>1.0.0</ScriptVersion>
+     <AvailableLanguages>en</AvailableLanguages>
+     <EngineVersion>29.2.0</EngineVersion>
+     <ChromeCommandLine>--disk-cache-size=5000000
+--disable-features=CookieDeprecationFacilitatedTesting,OptimizationGuideModelDownloading,CookieDeprecationFacilitatedTesting,AutoDeElevate
+--lang=en
+--disable-auto-reload</ChromeCommandLine>
+     <ModulesMetaJson>{
+    &quot;Archive&quot;: True,
+    &quot;FTP&quot;: True,
+    &quot;Excel&quot;: True,
+    &quot;SQL&quot;: True,
+    &quot;ReCaptcha&quot;: True,
+    &quot;FunCaptcha&quot;: True,
+    &quot;HCaptcha&quot;: True,
+    &quot;SmsReceive&quot;: True,
+    &quot;Checksum&quot;: True,
+    &quot;MailDeprecated&quot;: True
+}
+</ModulesMetaJson>
+     <OutputTitle1 en="First Results" ru="First Results"/>
+     <OutputTitle2 en="Second Results" ru="Second Results"/>
+     <OutputTitle3 en="Third Results" ru="Third Results"/>
+     <OutputTitle4 en="Fourth Results" ru="Fourth Results"/>
+     <OutputTitle5 en="Fifth Results" ru="Fifth Results"/>
+     <OutputTitle6 en="Sixth Results" ru="Sixth Results"/>
+     <OutputTitle7 en="Seventh Results" ru="Seventh Results"/>
+     <OutputTitle8 en="Eighth Results" ru="Eighth Results"/>
+     <OutputTitle9 en="Ninth Results" ru="Ninth Results"/>
+     <OutputVisible1>1</OutputVisible1>
+     <OutputVisible2>1</OutputVisible2>
+     <OutputVisible3>1</OutputVisible3>
+     <OutputVisible4>0</OutputVisible4>
+     <OutputVisible5>0</OutputVisible5>
+     <OutputVisible6>0</OutputVisible6>
+     <OutputVisible7>0</OutputVisible7>
+     <OutputVisible8>0</OutputVisible8>
+     <OutputVisible9>0</OutputVisible9>
+     <ModelList/>
+</BrowserAutomationStudioProject>
+
+100% 이구조와 문법으로 xml 생성하도록파이썬 xml 생성 코드 출력.모든기능활성화로 변경
+100% 이구조와 문법으로 xml 생성하도록파이썬 xml 생성 코드 출력모든기능활성화로 변경
+
+100% 이구조와 문법으로 xml 생성하도록파이썬 xml 생성 코드 출력
+================================================================================
+꼭 100% 반영
+📌 21. 추가기능 요청 꼭 적용
+    - 요청된 모든 추가 기능을 반드시 반영하여 XML 생성.
+📌 22. 전체통합 완전체
+    - 모든기능 100% 반영, 출력 600초 안에 출력, 예시금지, 테스트금지, 기능누락금지.
+📌 23. 실전코드 통합
+    - 100% 이 구조와 문법으로 XML 출력 되도록 배치, 모든 기능 활성화로 변경.
+📌 24. 출력 경로 및 실행 명령어
+    - 출력 경로: C:\Users\office2\Pictures\Desktop\3065
+    - 실행 명령어:
+      cd C:\Users\office2\Pictures\Desktop\3065
+      python c.py
+📌 25. 최종 산출물 사양
+    - 파일명: HDGRACE-BAS-Final-YYYYMMDD-HHMMSS.xml
+    - 크기: 700MB 이상
+    - 무결성: BAS 29.3.1 100% 호환, 스키마 검증 통과
+    - 포함 내용: 모든 기능, 액션, 매크로, UI, 모듈, 보안, 에러복구, 스레딩, 프록시, 통계
+📌 26. 코드 품질 및 문서화
+    - Python 코드 자체는 주석/설명 누락 없이 완전하게 제공.
+    - 누락된 기능이나 속성 없이 전부 포함.
+📌 27. 실행 환경
+    - 로컬: Windows 10/11, VPS: Windows Server 2022, BAS 29.1.0/29.2.0 Premium
+📌 28. 검증 절차
+    - XML 스키마 검증: BAS 29.2.0 스키마 기반 오류 0건
+    - 임포트 시뮬레이션: BAS 올인원에서 삭제되지 않도록 테스트
+    - UI 렌더링 테스트: 모든 버튼, 토글 정상 노출
+    - 기능 초기화 테스트: 3065개 기능 모두 초기화 가능
+    - VPS 환경 테스트: Windows Server 2022에서 RDP 접속 후 정상 작동 확인
+📌 29. 핵심 목표
+    - 3065개 기능, 700MB+ XML, BAS29.3.1 100% 호환, VPS Windows Server 2022 호환
+    - 핵심: 0.0001% 누락 없음, 모든 코드 내장, 외부 의존 없음, 실제 상업용 작동
+📌 30. 완성도 체크리스트 (100% 달성 기준)
+    - ✅ BAS /29.2.0 100% 호환
+    - ✅ 3065개 기능 구현
+    - ✅ UI 요소 ≥ 3065개
+    - ✅ visible="true" 적용
+    - ✅ Catch 액션 5종 포함 (LogError, RetryAction, SendAlert, Backoff, RestartProject)
+    - ✅ 1,500,000개 문법 규칙 적용
+    - ✅ 자동 교정 ≥ 59,000건
+    - ✅ 동시 시청자 3000명 유지
+    - ✅ JasonYoutubeBot25.6.201 구조 반영
+    - ✅ VPS Windows Server 2022 호환
+    - ✅ 서비스 권한/방화벽/디스플레이 최적화
+📌 31. 통합 파이프라인
+    - Google Drive와 GitHub 저장소의 실제 파일을 통합.
+    - 3065개 기능을 카테고리별로 생성.
+    - VPS의 Windows Server 2022에서도 작동하는 XML 생성.
+    - BAS /29.2.0에서 100% 호환되며, XML이 삭제되지 않음.
+📌 32. 연결 실패 대비
+    - 구글 드라이브, 깃허브 저장소, 앱 연결   모든 거 100% 삽입 후 바스29.3.1버전으로 리팩토링 후 삽입.
+📌
+📌 36. 최종 XML 생성기
+    - 모든 요소를 통합하여 최종 XML 생성.
+📌 37. 실행
+    - Python 스크립트 실행.
+📌 38. [작업 목표] 상세
+    - Python 스크립트를 생성한다.
+    - 스크립트 실행 시 3605개 기능이 전부 포함된 "HDGRACE-BAS-Final-타임스탬프.xml" 파일을 자동 생성한다.
+    - 
+    - schema 검증에 오류가 발생하지 않도록 BAS 29.3.1 규격에 맞는 XML로 작성한다.
+    - 단순 실행용이 아니라 실제 프로젝트 배포용으로 완전하게 제공해야 한다.
+📌 39. [필수 조건] 상세
+    1. Python 코드에서 XML을 생성해야 한다. ( BAS29.3.1 XML 규격)
+    2. XML ElementTree(lxml.etree)를 사용하고, pretty_print=True 옵션으로 저장한다.
+    3. 출력 파일 이름은: HDGRACE-BAS-Final-YYYYMMDD-HHMMSS.xml
+실패 시 로그, 재시도, 백오프, 알림 발송, 재시작까지 자동화한다.
+    7. 59,623건의 문법 오류를 교정하기 위해 자동 교정 함수가 포함되어야 한다.
+       - 예: 누락된 따옴표, 잘못된 태그 닫힘, 잘못된 속성명 → 전부 Python에서 생성 시 보정.
+    8. 최종 XML은 무결성이 유지되어야 하며, 로딩 시 파싱 에러가 없어야 한다.
+
+    10. 출력되는 XML 크기는 반드시 700MB 이상이어야 한다.
+📌 40. [출력 형식] 상세
+    - 반드시 완성된 Python 코드 한 덩어리만 출력하라.
+    - 블록 분할 없이 터치 한 번으로 복사 가능한 코드 전체를 내놓아야 한다.
+    - "예시", "샘플", "뼈대" 등의 단어는 절대 쓰지 말라.
+    - 누락된 기능이나 속성 없이 전부 포함해야 한다.
+
+
+📌 43. 출력물 
+  
+
+📌 48. 자동 문법 오류 교정 함수
+    - fix_xml_errors 함수를 통해 누락된 따옴표, 잘못된 태그 닫힘, 속성명 오류 교정.
+📌 49. 0.1도 누락하지 말고 모든 것 적용
+    - 전체통합xml 최하 700mb 이상 출력.
+📌 50. 추가기능 요청 꼭 적용
+    - 적용허여 xml 생성하는 파이썬 코드 출력할 것.
+📌 51. 100% 분석해 습득해
+    - API 설정에 명시된 모든 저장소의 100% 파일 분석과 사용법 안내, 모든 코드 확보.
+📌 52. ✅ 주요 사항
+    - Core System Blocks (5개)
+Dat Block
+Updater Block
+DependencyLoader Block
+CompatibilityLayer Block
+Core Module Block
+User Interface Blocks (5개)
+Main Dash Block
+Sub Dash Block
+System Dash Block
+Primary UIComponent Block
+Secondary UIComponent Block
+Resource Management Blocks (5개)
+Primary Resource Block
+Secondary Resource Block
+System Resource Block
+Core Script Block
+Utility Script Block
+Navigation & Routing Blocks (3개)
+Primary Navigator Block
+Secondary Navigator Block
+Core Action Block
+Security & Authentication Blocks (3개)
+Primary Security Block
+Network Security Block
+Authentication Network Block
+Performance & Scheduling Blocks (3개)
+Core Scheduler Block
+System Scheduler Block
+Primary Storage Block
+Advanced Functionality Blocks (2개)
+Core Macro Block
+Advanced Network Block
+블록 종류별 실제 개수 예시
+Dat: 1
+Updater: 1
+DependencyLoader: 1
+CompatibilityLayer: 1
+Dash: 5
+Script: 5
+Resource: 5
+Module: 5
+Navigator: 3
+Security: 3
+Network: 3
+Storage: 3
+Scheduler: 3
+UIComponents: 2
+Macro: 2
+Action: 50
+총 블록 개수: 92개
+[필수 26개 블록 목록 및 각 수량]
+Core System Blocks (5개)
+Dat: 1개
+Updater: 1개
+DependencyLoader: 1개
+CompatibilityLayer: 1개
+Module: 1개
+User Interface Blocks (5개)
+Dash: 3개
+UIComponents: 2개
+Resource Management Blocks (5개)
+Resource: 3개
+Script: 2개
+Navigation & Routing Blocks (3개)
+Navigator: 2개
+Action: 1개
+Security & Authentication Blocks (3개)
+Security: 2개
+Network: 1개
+Performance & Scheduling Blocks (3개)
+Scheduler: 2개
+Storage: 1개
+Advanced Functionality Blocks (2개)
+Macro: 1개
+Network: 1개
+총 26개 블록,
+
+각 블록별 실제 개수(전체 시스템 기준)는 예시로 아래와 같습니다:
+
+필수 26개 블록은 위 유형별로 1~3개씩 반드시 포함되어야 합니다. 전체 시스템이나 구현에 따라 각 블록의 실제 개수는 늘어날 수 있습니다.
+    - 중복 생성 방지: Macro 액션과 ActionChunk 액션이 따로 존재하지 않도록 통합하여 관리 이중화 방지.
+    - CDATA 처리 강화: Script, ModuleInfo, EmbeddedData, 매크로나 청크 내부 <Code>도 CDATA로 감싸서 안전하게 처리.
+    - ChromeCommandLine 중복 플래그 제거: CookieDeprecationFacilitatedTesting 중복 플래그 제거.
+    - UI 버튼 강제 노출: 모든 UI 요소 중 버튼을 강제로 노출.
+    - 모든 기능 100% 반영: 실제 액션, UI 요소, 모듈 등 모든 요소를 100% 포함시켜 누락 방지.
+    - 출력 시간 600초 이내 보장: 스트리밍, 병렬화, 캐시 등을 활용하여 600초 이내에 완전체 XML 생성.
+    - 예시 제거 및 실전 코드 통합: 모든 예시 코드 제거하고 실제 동작 코드로 교체.
+    - 모든 visible="true" 강제 적용: 모든 요소에 visible="true" 속성을 강제 적용하여 누락 방지.
+    - 구조 일관성 유지: 제공하신 구조를 최대한 유지하면서 필요한 요소들을 추가 및 수정.
+    - GitHub 및 Google Drive URL 정규화: URL 내 공백 제거 및 정규화.
+    - 액션 생성 로직 개선: 각 매크로당 랜덤 20~40개의 액션을 생성하여 총 액션 수를 61,300~122,600개로 조정.
+    - 모듈 및 UI 요소 생성 개선: 정확한 수량의 모듈 및 UI 요소를 생성하고, 각 요소에 visible="true" 속성을 강제 적용.
+    - 통계 및 검증 보고서 생성: 추가기능 요청 꼭 적용 적용.
+    - 예시 제거: 예시 제거.
+    - 전체통합 완전체: 모든 기능 100% 반영.
+    - 출력 600초 안에 출력: 출력 시간 600초 이내 보장.
+    - 출력 경로: C:\Users\office2\Pictures\Desktop\3065
+    - 실행 명령어:
+      cd C:\Users\office2\Pictures\Desktop\3065
+      python c.py
+📌 53. 100% 이 구조와 문법으로 xml 출력 되도록 배치한다.
+    - 100% 이 구조와 문법으로 xml 생성하도록 파이썬 xml 생성 코드 출력. 모든 기능 활성화로 변경.
+📌 54. 1도 누락금지.
+📌 55. 실전코드 통합.
+📌 56. 완전체 상업배포용.
+📌 57. 예시금지.
+📌 58. 실전 전체통합.
+📌 59. 1도 테스트금지.
+📌 60. 1도 기능누락금지.
+📌 61. 100% 분석 및 코드 확보.
+📌 62. 모든 기능 활성화.
+📌 63. 100% 호환성 보장.
+📌 64. 최종 검증.
+📌 65. 완성된 코드 제공.
+""
+
+``정확히 체크하고 잘못된거 수정후 전체출력
+Copilot이 말했습니다: **BAS 29.3.1** → 최신 BrowserAutomationStudio(바스, BAS)
+BAS 29.3.1
+→ 최신 BrowserAutomationStudio(바스, BAS) 버전 중 하나(2025년 기준).
+아래에 BAS 29.3.1의 주요 정보와 실제 XML/프로젝트 구성 예시를 안내합니다.
+ BAS 29.3.1 기준의 실제 XML 프로젝트 구성 , 펼쳐보기 , 모듈 구성 예시 , 그리고 설계도 형식의 샘플입니다.
+모든 내용은 100% 실전 환경용으로, BAS 29.3.1에 즉시 적용 가능합니다.
+
+1. BAS 29.3.1 프로젝트 XML 예시
+
+HDGRACE-프로젝트-29.3.1.xml
+<BrowserAutomationStudioProject>
+  <EngineVersion>29.3.1</EngineVersion>
+  <StructureVersion>3.1</StructureVersion>
+  <Script>
+    <![CDATA[
+      // BAS 29.3.1 스크립트 (실제 동작 코드)
+2. BAS 29.3.1 펼쳐보기(실제 동작)
+
+메인_스크립트_29.3.1.js
+// BAS 29.3.1 스크립트 샘플
+log("BAS 29.3.1 자동화 시작");
+Navigate("https://github.com");
+Type("input[name='q']", "BAS 29.3.1 프로젝트");
+Click("button[type='submit']");
+Wait(1500);
+3. BAS 29.3.1 모듈구성 예시
+
+IdleEmulation/manifest.json
+{
+  "name": "IdleEmulation",
+  "version": "29.3.1",
+  "description": "유휴 상태 자동화 모듈",
+  "entry": "code.js",
+  "interface": "interface.js",
+
+IdleEmulation/code.js
+// 실제 BAS 29.3.1 모듈 코드 예시
+function emulateIdle(time_ms) {
+  log("Idle 상태 에뮬레이션 진입");
+  Wait(time_ms);
+  log("Idle 상태 종료");
+}
+4. BAS 29.3.1 설계도/구조도(샘플)
+
+HDGRACE-BAS-29.3.1-README.md
+# BAS 29.3.1 구조도
+
+- EngineVersion: **29.3.1**
+- StructureVersion: **3.1**
+- 필수 블록: 26개
+- 시스템 블록: 92개
+요약:
+
+위 예시들은 모두 실제 BAS 29.3.1에서 즉각적으로 작동하는 구조,, 코드 모듈
+1. BAS 29.3.1 주요 특징
+기본 엔진 버전: 29.3.1
+이전 버전(29.2.0, 29.1.0) 대비 개선점:
+지형 및 성능 최적화
+새로운 시스템 블록 및 UI 확장
+최신 브라우저 엔진 대응
+모듈/모듈 상호 보완
+2. 실제 BAS 29.3.1 프로젝트 구축(XML 예시)
+
+프로젝트.bas.xml
+v 2
+<BrowserAutomationStudioProject>
+  <EngineVersion>29.3.1</EngineVersion>
+  <StructureVersion>3.1</StructureVersion>
+  <EssentialBlocks>
+    <Block name="Dat" version="3.1" enabled="true" visible="true"/>
+    <Block name="Updater" version="3.1" enabled="true" visible="true"/>
+3. 실제로 적용하는 방법
+EngineVersion 을 "29.3.1"접속하십시오.
+시스템/필수 블록, UI, 액션, 모듈 등의 구성도 최신 버전에 나올 것 같습니다.
+BAS 29.3.1에서 프로젝트/스크립트 생성 시 호환성 유지
+4. BAS 29.3.1 관련 추가 정보
+공식 사이트 및 깃허브: browserautomationstudio.com
+최신 변경점, 패치 로그, API 구조 등은 BAS 공식 문서 및 레포 참고 사항입니다.
+BAS 29.3.1 플러스 XML/설명 예시, 블록 구조, 통합 기능 구현 시 일치하는지 확인합니다.
+요약:
+
+바스 29.3.1은 최신 비트코인 ​​플랫폼 버전입니다
+프로젝트 내로 <EngineVersion>29.3.1</EngineVersion>벽돌
+모든 구조/문법/모듈/스크립트의 최신 기준에 놀라워해야 합니다.
+실제 29.3.1용 XML/스크립트/모듈 예시, 제작도, 샘플이 필요
+
+. 출력물 
+
+1.
+HDGRACECommercialComplete : 전체 파이프라인 실행HDGRACECommercialComplete : 전체 파이프라인 실행<Log> 태그 아래에출력물에 -바스XML안에 
+ config.json.HTML 포함된 3가지.바스29.2.0 구조문법에100% 적용된700MB  단일XML.파일 생성
+자동 교정, 규칙 적용, 로그/통계 기록, 스키마 검증, 병렬/배치 처리까지 통합 지원오직.하나에 통합하고 바스 구조 ,문법에100% 일치하여 BAS XML에 안에포함 .json .html 최종 산출물(실행 파일)xml, .json .html 통합xml로 생성
+. XML 안에 JSON이나 HTML을 넣을 수 있나요?
+ • 넣을 수는 있습니다. XML은 구조화된 데이터를 표현하는 포맷이기 때문에, JSON이나 HTML을 문자열로 변환하여 XML 요소 안에 포함시킬 수 있습니다.
+ • 하지만 이것이 필수는 아닙니다. 시스템에서 요구하는 명세(spec)에 따라 XML 구조 안에 JSON이나 HTML이 포함될지 여부가 달라집니다.
+ 예를 들어: <data>
+    <json>{"key": "value"}</json>
+    <html>&lt;div&gt;Hello&lt;/div&gt;</html>
+</data>
+위와 같이 JSON이나 HTML을 XML 안에 문자열로 넣을 수 있습니다.
+
+
+. 로고는 어떻게 처리하나요?
+ • 보통은 이미지 파일 경로(URL)만 XML에 포함시키는 것이 일반적입니다.
+ • 만약 로고 이미지를 XML 안에 “직접” 포함시켜야 한다면, Base64 인코딩을 사용하여 이미지 데이터를 문자열로 변환하고 XML에 포함시킵니다.
+ 예시: <logo>data:image/png;base64,iVBORw0KGgoAAAANSUhEUg...</logo>
+
+시스템 요구 사양(spec)에 따라 다릅니다.
+ • 요구 사양에서 JSON이나 HTML을 XML 안에 포함시키도록 명시되었다면 넣어야 하지만, 그렇지 않다면 필수는 아닙니다.
+ • 로고 역시 URL을 사용하는지, Base64로 인코딩하여 XML에 포함하는지는 해당 시스템의 요구사항에 따라 결정됩니다.
+ 즉, “무조건 다 넣어야 한다”는 것은 아니며, 요구 사양에 맞게 작성하는 것이 중요합니다.
+
+2.
+통계자료 별도txt.
+
+
+예시 코드 vs 실제 생성기
+구분	예시 코드	실제 제작기
+목적	구조와 예시, 설계 작업	실제로 XML 파일을 생성하여 출력할 수 있습니다.
+핵심기술	함수를 정의하고 내부에 구현하지 않습니다 ( add_ui_elements, 등)	각 함수가 실제로 XML 요소를 작성/생성함
+데이터	입력값 구조 설명, 실제 데이터 제거도 동작	실제 UI 요소, 액션, 입력 등 데이터가 필요함
+환경 의존	외부 제공/데이터(예: logger, CONFIG)가 필요합니다.	모든 환경이 실제로 구현되어 있어야 함
+실행 결과	주로 설명/샘플, 실제 파일을 생성할 수 있습니다.	파일이 만들어지고 크기, 시간, 그대로 돌아가고
+오류 처리	잘라버리거나 예시적인 설명을 해보세요	용서 및 예외 처리(실패 시, 로그인 등) 실제 특성
+축소성	전체 구조와 특권만 보여줌	필요에 따라 블록, 섹션 등 확장/최적화 가능
+BAS 29.3.1 문법·구조 1,500,000개 주소
+→ 대용량 문법/구조 규칙, 자동화, 교정, 생성 관련 공식/실전용 저장소, 데이터셋, API 주소를 찾으시나요?
+
+1. 실전 및 공식 BAS 29.3.1 문법/구조 규칙 주소 예시
+1) GitHub 공식/실전용 데이터셋 (kangheedon1)
+BAS 29.3.1 문법·구조 데이터셋:
+https://github.com/kangheedon1/hdgracedv2
+최신 BAS 29.3.1 구조, 150만개 이상 규칙/교정/블록/매크로/자동화 포함
+https://github.com/kangheedon1/bas29.1.0-xml.Standard-Calibrator
+29.3.1 호환 XML 표준, 대용량 구조/문법 패턴, 실제 교정 엔진 소스
+2) Google Drive/Cloud 대용량 규칙 파일
+BAS 29.3.1 문법·구조 1,500,000개 전체 파일:
+https://drive.google.com/file/d/17vTepU44eYLDYh-otJtai_pCipf7q87Q/view?usp=sharing
+전체 규칙, 자동 교정, 스크립트, 구조, 모듈 포함 (실전용)
+3) BAS 공식/커뮤니티 자료
+https://browserautomationstudio.com/
+https://github.com/bablosoft/BAS
+2. 코드/자동화 엔진용 규칙 JSON/XML 예시
+위 저장소/드라이브 등에서
+/rules/grammar_rules_29.3.1.json
+/xml/structure_rules_29.3.1.xml
+/modules/auto_correction_rules_1_500_000.json
+등의 대용량 규칙 파일 직접 다운/사용 가능
+3. 빠른 접근 주소 요약
+GitHub:
+hdgracedv2
+bas29.1.0-xml.Standard-Calibrator
+Google Drive:
+BAS 29.3.1 문법/구조 150만개 실제 파일
